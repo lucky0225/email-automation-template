@@ -1,5 +1,12 @@
 import smtplib
 
+"""
+sender email    ->  sender's email account address
+receiver email  ->  recipient's email
+password        ->  sender's account password
+message         ->  email text
+"""
+
 sender_email = ""
 receiver_email = ""
 password = ""
@@ -9,9 +16,14 @@ message = ""
 server = smtplib.SMTP("smtp.gmail.com", 587)
 # connecting to the server of your email provider
 server.starttls()
+
+
+#login
 server.login(sender_email, password)
 print("Login successful")
 
+
+#send email
 server.sendmail(sender_email, receiver_email, message)
 print("You email has successfully been sent to: ", receiver_email)
 
